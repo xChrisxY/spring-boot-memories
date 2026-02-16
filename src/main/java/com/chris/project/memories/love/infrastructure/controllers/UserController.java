@@ -1,4 +1,4 @@
-package com.chris.project.memories.love.infrastructure.controllers.user;
+package com.chris.project.memories.love.infrastructure.controllers;
 
 import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpStatus;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chris.project.memories.love.domain.models.User;
-import com.chris.project.memories.love.domain.ports.in.CreateUserUseCase;
+import com.chris.project.memories.love.domain.ports.in.user.CreateUserUseCase;
 import com.chris.project.memories.love.infrastructure.dto.ApiResponse;
 import com.chris.project.memories.love.infrastructure.dto.user.UserDTO;
 import com.chris.project.memories.love.infrastructure.dto.user.UserResponseDTO;
@@ -39,7 +39,7 @@ public class UserController {
             ApiResponse<UserResponseDTO> response = new ApiResponse<UserResponseDTO>(
                   true,
                   "User created successfully",
-                  200,
+                  201,
                   userResponseDTO
             );
 

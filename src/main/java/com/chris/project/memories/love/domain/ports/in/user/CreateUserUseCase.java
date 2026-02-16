@@ -1,4 +1,4 @@
-package com.chris.project.memories.love.domain.ports.in;
+package com.chris.project.memories.love.domain.ports.in.user;
 
 import com.chris.project.memories.love.domain.models.User;
 

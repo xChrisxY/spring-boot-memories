@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.chris.project.memories.love.domain.models.User;
-import com.chris.project.memories.love.domain.ports.on.UserRepositoryPort;
+import com.chris.project.memories.love.domain.ports.on.user.UserRepositoryPort;
 import com.chris.project.memories.love.infrastructure.entities.UserEntity;
 import com.chris.project.memories.love.infrastructure.mappers.user.UserPersistenceMapper;
 import com.chris.project.memories.love.infrastructure.repositories.JpaUserRepository;

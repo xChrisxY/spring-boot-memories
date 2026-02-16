@@ -1,4 +1,4 @@
-package com.chris.project.memories.love.domain.ports.on;
+package com.chris.project.memories.love.domain.ports.on.user;
 
 import java.util.Optional;
 
