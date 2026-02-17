@@ -29,7 +29,7 @@ public class UserController {
             this.userMapper = userMapper;
       }
 
-      @PostMapping
+      @PostMapping("/register")
       public ResponseEntity<ApiResponse<UserResponseDTO>> create(@Valid @RequestBody UserDTO dto){
 
             User user = userMapper.toDomain(dto);

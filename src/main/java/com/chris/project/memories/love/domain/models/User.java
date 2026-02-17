@@ -1,5 +1,7 @@
 package com.chris.project.memories.love.domain.models;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 public class User {
@@ -8,6 +10,15 @@ public class User {
       private String username;
       private String passwordHash;
       private String email;
+      private Set<Role> roles;
+
+      public User(){
+            this.roles = new HashSet<>();
+      }
+
+      public void addRole(Role role){
+            this.roles.add(role);
+      }
 
       public UUID getId() {
             return id;
@@ -32,6 +43,14 @@ public class User {
       }
       public void setEmail(String email) {
             this.email = email;
+      }
+
+      public Set<Role> getRoles() {
+            return roles;
+      }
+
+      public void setRoles(Set<Role> roles) {
+            this.roles = roles;
       }
 
 }
