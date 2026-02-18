@@ -12,6 +12,16 @@ public class Memory {
       private LocalDateTime createdAt;
       private User user;
 
+      public Memory(String title, String description){
+            this();
+            this.title = title;
+            this.description = description;
+      }
+
+      public Memory(){
+            this.createdAt = LocalDateTime.now();
+      }
+
       public UUID getId() {
             return id;
       }

@@ -2,6 +2,7 @@ package com.chris.project.memories.love.infrastructure.repositories.adapters;
 
 import java.util.Optional;
 import java.util.Set;
+import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,9 +54,21 @@ public class JpaUserRepositoryAdapter implements UserRepositoryPort{
       }
 
       @Override
-      @Transactional
-      public Optional<User> getUserById(Long user){
-            return null;
+      @Transactional(readOnly = true)
+      public Optional<User> getUserById(UUID uuid){
+
+            return userRepository.findById(uuid)
+                  .map(user -> userMapper.toDomain(user));
+
+      }
+
+      @Override
+      @Transactional(readOnly = true)
+      public Optional<User> findByUsername(String username){
+
+            return userRepository.findByUsername(username)
+                  .map(user -> userMapper.toDomain(user));
+
       }
 
 }

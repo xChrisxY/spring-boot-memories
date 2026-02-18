@@ -50,7 +50,7 @@ public class JpaUserUserDetailsService implements UserDetailsService {
                   true,
                   true,
                   true,
-                  false, authorities
+                  true, authorities
             );
 
       }

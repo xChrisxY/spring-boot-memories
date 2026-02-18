@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import com.chris.project.memories.love.infrastructure.security.filters.JwtAuthenticationFilter;
+import com.chris.project.memories.love.infrastructure.security.filters.JwtValidationFilter;
 
 @Configuration
 public class SpringSecurityConfig {
@@ -30,14 +31,18 @@ public class SpringSecurityConfig {
       SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
 
             AuthenticationManager authenticationManager = authenticationConfiguration.getAuthenticationManager();
+
             JwtAuthenticationFilter jwtAuthenticationFilter = new JwtAuthenticationFilter(authenticationManager);
+            JwtValidationFilter jwtValidationFilter = new JwtValidationFilter(authenticationManager);
             jwtAuthenticationFilter.setFilterProcessesUrl("/api/auth/login");
 
             return httpSecurity.authorizeHttpRequests((authorize) -> authorize
                   
                   .requestMatchers(HttpMethod.POST, "/api/users/register").permitAll()
-                  .anyRequest().permitAll())
+                  //.requestMatchers(HttpMethod.POST, "/api/memories")
+                  .anyRequest().authenticated())
                   .addFilter(jwtAuthenticationFilter)
+                  .addFilter(jwtValidationFilter)
                   .csrf(AbstractHttpConfigurer::disable)
                   .sessionManagement(managment -> managment.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                   .build();
