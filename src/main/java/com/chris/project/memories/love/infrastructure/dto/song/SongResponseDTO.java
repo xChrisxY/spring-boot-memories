@@ -1,19 +1,17 @@
-package com.chris.project.memories.love.domain.models;
+package com.chris.project.memories.love.infrastructure.dto.song;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class Song {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class SongResponseDTO {
 
       private UUID id;
       private String url;
       private String message;
+      @JsonProperty("created_at")
       private LocalDateTime createdAt;
-      private User user;
-
-      public Song(){
-            this.createdAt = LocalDateTime.now();
-      }
 
       public UUID getId() {
             return id;
@@ -39,11 +37,4 @@ public class Song {
       public void setCreatedAt(LocalDateTime createdAt) {
             this.createdAt = createdAt;
       }
-      public User getUser() {
-            return user;
-      }
-      public void setUser(User user) {
-            this.user = user;
-      }
-
 }

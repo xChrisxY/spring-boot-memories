@@ -3,17 +3,12 @@ package com.chris.project.memories.love.domain.models;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class Song {
+public class Note {
 
       private UUID id;
-      private String url;
-      private String message;
+      private String content;
       private LocalDateTime createdAt;
       private User user;
-
-      public Song(){
-            this.createdAt = LocalDateTime.now();
-      }
 
       public UUID getId() {
             return id;
@@ -21,17 +16,11 @@ public class Song {
       public void setId(UUID id) {
             this.id = id;
       }
-      public String getUrl() {
-            return url;
+      public String getContent() {
+            return content;
       }
-      public void setUrl(String url) {
-            this.url = url;
-      }
-      public String getMessage() {
-            return message;
-      }
-      public void setMessage(String message) {
-            this.message = message;
+      public void setContent(String content) {
+            this.content = content;
       }
       public LocalDateTime getCreatedAt() {
             return createdAt;
@@ -45,5 +34,4 @@ public class Song {
       public void setUser(User user) {
             this.user = user;
       }
-
 }
