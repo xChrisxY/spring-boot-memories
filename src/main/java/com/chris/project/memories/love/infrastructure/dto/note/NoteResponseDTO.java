@@ -1,18 +1,17 @@
-package com.chris.project.memories.love.domain.models;
+package com.chris.project.memories.love.infrastructure.dto.note;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class Note {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class NoteResponseDTO {
 
       private UUID id;
       private String content;
+      @JsonProperty("created_at")
       private LocalDateTime createdAt;
-      private User user;
 
-      public Note(){
-            this.createdAt = LocalDateTime.now();
-      }
       public UUID getId() {
             return id;
       }
@@ -30,11 +29,5 @@ public class Note {
       }
       public void setCreatedAt(LocalDateTime createdAt) {
             this.createdAt = createdAt;
-      }
-      public User getUser() {
-            return user;
-      }
-      public void setUser(User user) {
-            this.user = user;
       }
 }
