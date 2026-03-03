@@ -3,7 +3,7 @@ package com.chris.project.memories.love.infrastructure.dto.lists;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import org.hibernate.type.ListType;
+import com.chris.project.memories.love.domain.enums.ListType;
 
 public class CustomListResponseDTO {
 

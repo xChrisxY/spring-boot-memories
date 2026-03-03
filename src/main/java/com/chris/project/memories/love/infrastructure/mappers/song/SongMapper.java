@@ -1,5 +1,7 @@
 package com.chris.project.memories.love.infrastructure.mappers.song;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 
 import com.chris.project.memories.love.domain.models.Song;
@@ -11,5 +13,6 @@ public interface SongMapper {
 
       Song toDomain(SongDTO dto);
       SongResponseDTO toResponseDTO(Song song);
+      List<SongResponseDTO> toListResponseDTO(List<Song> songs);
 
 }

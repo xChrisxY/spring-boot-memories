@@ -1,19 +1,14 @@
-package com.chris.project.memories.love.domain.models;
+package com.chris.project.memories.love.infrastructure.dto.lists;
 
 import java.util.UUID;
 
 import com.chris.project.memories.love.domain.enums.ItemStatus;
 
-public class ListEnum {
+public class ListEnumResponseDTO {
 
       private UUID id;
       private String content;
       private ItemStatus status;
-      private CustomList list;
-
-      public ListEnum(){
-            this.status = ItemStatus.PENDING;
-      }
 
       public UUID getId() {
             return id;
@@ -32,11 +27,5 @@ public class ListEnum {
       }
       public void setStatus(ItemStatus status) {
             this.status = status;
-      }
-      public CustomList getList() {
-            return list;
-      }
-      public void setList(CustomList list) {
-            this.list = list;
       }
 }

@@ -17,7 +17,7 @@ public class CreateCustomListUseCaseImpl implements CreateCustomListUseCase {
 
       @Override
       public CustomList execute(CustomList customList){
-
+            
             return customListRepository.save(customList);
       }
 

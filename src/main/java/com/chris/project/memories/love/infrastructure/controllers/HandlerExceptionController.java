@@ -10,7 +10,9 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
+import com.chris.project.memories.love.domain.exceptions.CustomListNotFoundException;
 import com.chris.project.memories.love.domain.exceptions.MemoryNotFoundException;
 import com.chris.project.memories.love.domain.exceptions.NoteNotFoundException;
 import com.chris.project.memories.love.domain.exceptions.RoleNotFoundException;
@@ -46,13 +48,28 @@ public class HandlerExceptionController {
             RoleNotFoundException.class, 
             SongNotFoundException.class, 
             UserNotFoundException.class, 
-            NoteNotFoundException.class
+            NoteNotFoundException.class,
+            CustomListNotFoundException.class
       })
       public ResponseEntity<ApiResponse<String>> entityNotFound(Exception e){
 
             ApiResponse<String> response = new ApiResponse<>(
                   false, 
-                  "Error de validación en el cuerpo de la petición", 
+                  "Entidad no encontrada, por favor revise el ID correcto", 
+                  HttpStatus.FORBIDDEN.value(), 
+                  e.getMessage()
+            );
+
+            return ResponseEntity.status(HttpStatus.FORBIDDEN.value()).body(response);
+
+      }
+
+      @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+      public ResponseEntity<ApiResponse<String>> uuidToStringFailed(Exception e){
+
+            ApiResponse<String> response = new ApiResponse<>(
+                  false, 
+                  "El UUID proporcionado no tiene la estructura adecuada", 
                   HttpStatus.FORBIDDEN.value(), 
                   e.getMessage()
             );

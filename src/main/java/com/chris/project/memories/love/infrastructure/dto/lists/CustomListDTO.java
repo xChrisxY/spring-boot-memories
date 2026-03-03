@@ -1,6 +1,6 @@
 package com.chris.project.memories.love.infrastructure.dto.lists;
 
-import org.hibernate.type.ListType;
+import com.chris.project.memories.love.domain.enums.ListType;
 
 public class CustomListDTO {
 
