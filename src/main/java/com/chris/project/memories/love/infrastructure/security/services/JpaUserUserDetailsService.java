@@ -13,7 +13,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.chris.project.memories.love.domain.exceptions.UserNotFoundException;
 import com.chris.project.memories.love.infrastructure.entities.UserEntity;
 import com.chris.project.memories.love.infrastructure.repositories.JpaUserRepository;
 
@@ -33,8 +32,8 @@ public class JpaUserUserDetailsService implements UserDetailsService {
             Optional<UserEntity> optionalUser = userRepository.findByUsername(username);
 
             if (optionalUser.isEmpty()){
-                  throw new UserNotFoundException(
-                        String.format("El username % no existe en el sistema", username)
+                  throw new UsernameNotFoundException(
+                        String.format("El username %s no existe en el sistema", username)
                   );
             }
 

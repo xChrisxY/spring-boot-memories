@@ -11,6 +11,9 @@ import com.chris.project.memories.love.infrastructure.dto.user.UserResponseDTO;
 public interface UserMapper {
 
       @Mapping(source = "password", target = "passwordHash")
+      @Mapping(target = "id", ignore = true)
+      @Mapping(target = "roles", ignore = true)
       User toDomain(UserDTO dto);
+      
       UserResponseDTO toResponseDTO(User user);
 }
