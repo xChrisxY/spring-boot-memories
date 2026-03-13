@@ -1,4 +1,4 @@
-package com.chris.project.memories.love.domain.ports.note;
+package com.chris.project.memories.love.domain.ports.in.note;
 
 import java.util.List;
 

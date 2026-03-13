@@ -1,5 +1,7 @@
 package com.chris.project.memories.love.infrastructure.mappers.lists;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -15,5 +17,7 @@ public interface CustomListMapper {
       CustomList toDomain(CustomListDTO dto);
       
       CustomListResponseDTO toResponseDTO(CustomList customList);
+
+      List<CustomListResponseDTO> toListResponseDTOs(List<CustomList> customLists);
       
 }

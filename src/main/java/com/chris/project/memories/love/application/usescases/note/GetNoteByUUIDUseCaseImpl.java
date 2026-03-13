@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import com.chris.project.memories.love.domain.exceptions.NoteNotFoundException;
 import com.chris.project.memories.love.domain.models.Note;
-import com.chris.project.memories.love.domain.ports.note.GetNoteByUUIDUseCase;
+import com.chris.project.memories.love.domain.ports.in.note.GetNoteByUUIDUseCase;
 import com.chris.project.memories.love.domain.ports.on.note.NoteRepositoryPort;
 
 @Component

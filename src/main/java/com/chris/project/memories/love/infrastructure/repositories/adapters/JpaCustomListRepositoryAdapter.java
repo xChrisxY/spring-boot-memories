@@ -63,4 +63,12 @@ public class JpaCustomListRepositoryAdapter implements CustomListRepositoryPort 
                   .collect(Collectors.toList());
       }
 
+      @Override
+      @Transactional(readOnly = true)
+      public List<CustomList> findAll(){
+            return customListRepository.findAll().stream() 
+                  .map(customList -> customListMapper.toDomain(customList)) 
+                  .collect(Collectors.toList());
+      }
+
 }

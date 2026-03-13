@@ -16,6 +16,7 @@ import com.chris.project.memories.love.domain.models.CustomList;
 import com.chris.project.memories.love.domain.models.ListEnum;
 import com.chris.project.memories.love.domain.ports.in.lists.CreateCustomListUseCase;
 import com.chris.project.memories.love.domain.ports.in.lists.CreateListEnumUseCase;
+import com.chris.project.memories.love.domain.ports.in.lists.FindAllCustomListsUseCase;
 import com.chris.project.memories.love.domain.ports.in.lists.GetItemsByCustomListUseCase;
 import com.chris.project.memories.love.infrastructure.dto.ApiResponse;
 import com.chris.project.memories.love.infrastructure.dto.lists.CustomListDTO;
@@ -34,6 +35,7 @@ public class CustomListController {
       private final CreateCustomListUseCase createCustomListUseCase;
       private final CreateListEnumUseCase createListEnumUseCase;
       private final GetItemsByCustomListUseCase getItemsByCustomListUseCase;
+      private final FindAllCustomListsUseCase findAllCustomListsUseCase;
       private final CustomListMapper customListMapper;
       private final ListEnumMapper listEnumMapper;
 
@@ -41,12 +43,14 @@ public class CustomListController {
             CreateCustomListUseCase createCustomListUseCase, 
             CreateListEnumUseCase createListEnumUseCase,
             GetItemsByCustomListUseCase getItemsByCustomListUseCase,
+            FindAllCustomListsUseCase findAllCustomListsUseCase,
             CustomListMapper customListMapper,
             ListEnumMapper listEnumMapper
       ){
             this.createCustomListUseCase = createCustomListUseCase;
             this.createListEnumUseCase = createListEnumUseCase;
             this.getItemsByCustomListUseCase = getItemsByCustomListUseCase;
+            this.findAllCustomListsUseCase = findAllCustomListsUseCase;
             this.customListMapper = customListMapper;
             this.listEnumMapper = listEnumMapper;
       }
@@ -99,5 +103,21 @@ public class CustomListController {
             );
 
             return ResponseEntity.status(HttpStatus.CREATED.value()).body(response);
+      }
+
+      @GetMapping
+      public ResponseEntity<ApiResponse<List<CustomListResponseDTO>>> findAll(){
+
+            List<CustomList> customLists = findAllCustomListsUseCase.execute();
+            List<CustomListResponseDTO> customListResponseDTOs = customListMapper.toListResponseDTOs(customLists);
+
+            ApiResponse<List<CustomListResponseDTO>> response = new ApiResponse<List<CustomListResponseDTO>>(
+                  true, 
+                  "Listas", 
+                  200, 
+                  customListResponseDTOs
+            );
+
+            return ResponseEntity.status(HttpStatus.OK.value()).body(response);
       }
 }

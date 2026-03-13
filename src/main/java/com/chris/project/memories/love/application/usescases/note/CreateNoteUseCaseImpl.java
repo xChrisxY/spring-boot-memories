@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import com.chris.project.memories.love.domain.exceptions.UserNotFoundException;
 import com.chris.project.memories.love.domain.models.Note;
 import com.chris.project.memories.love.domain.models.User;
-import com.chris.project.memories.love.domain.ports.note.CreateNoteUseCase;
+import com.chris.project.memories.love.domain.ports.in.note.CreateNoteUseCase;
 import com.chris.project.memories.love.domain.ports.on.note.NoteRepositoryPort;
 import com.chris.project.memories.love.domain.ports.on.user.UserRepositoryPort;
 

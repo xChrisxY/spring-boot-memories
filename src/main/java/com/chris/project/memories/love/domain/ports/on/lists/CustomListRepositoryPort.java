@@ -11,4 +11,5 @@ public interface CustomListRepositoryPort {
       CustomList save(CustomList customList);
       Optional<CustomList> findById(UUID id);
       List<ListEnum> getListEnumByCustomListUUID(UUID uuid);
+      List<CustomList> findAll();
 }

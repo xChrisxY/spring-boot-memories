@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.chris.project.memories.love.domain.models.Note;
-import com.chris.project.memories.love.domain.ports.note.ListNotesUseCase;
+import com.chris.project.memories.love.domain.ports.in.note.ListNotesUseCase;
 import com.chris.project.memories.love.domain.ports.on.note.NoteRepositoryPort;
 
 @Component

@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chris.project.memories.love.domain.models.Note;
-import com.chris.project.memories.love.domain.ports.note.CreateNoteUseCase;
-import com.chris.project.memories.love.domain.ports.note.GetNoteByUUIDUseCase;
-import com.chris.project.memories.love.domain.ports.note.ListNotesUseCase;
+import com.chris.project.memories.love.domain.ports.in.note.CreateNoteUseCase;
+import com.chris.project.memories.love.domain.ports.in.note.GetNoteByUUIDUseCase;
+import com.chris.project.memories.love.domain.ports.in.note.ListNotesUseCase;
 import com.chris.project.memories.love.infrastructure.dto.ApiResponse;
 import com.chris.project.memories.love.infrastructure.dto.note.NoteDTO;
 import com.chris.project.memories.love.infrastructure.dto.note.NoteResponseDTO;
